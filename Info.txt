@@ -1,0 +1,14 @@
+Jana Tic Tac Toe V0.1 by Jana and Ricky Helfgen
+                                      
+Tic Tac Toe Python3 Game use the packages:
+
+tkinter, sys, os, pygame, math, configpaser
+
+
+The Gui is build with the 'PAGE' Project under Linux.
+
+Thanks to all these programmers !
+
+This is an open source project and is subject to the guidelines of GPL V3.
+
+Have fun ! No War !

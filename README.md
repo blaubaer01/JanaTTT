@@ -19,7 +19,7 @@ The Gui is build with the PAGE projekt.(http://page.sourceforge.net/)
 
 Thanks to all this Programmers
 
-![Logo Jana Tic Tac Toe ](http://www.reh-webdesign.de/janattt/pics/startbild.png)
+![Logo Jana Tic Tac Toe ](http://www.reh-webdesign.de/janattt/pics/Programm.png)
 
 
 [More under: http://www.reh-webdesign.de/janattt/](http://www.reh-webdesign.de/janattt/)

@@ -108,6 +108,26 @@ def click(game_array):
                     game_array[i][j] = (x, y, 'Spieler2', False)
 
 
+def still_free(game_array):
+    
+    
+    if (game_array[0][1] != ""):
+        print('a1 still free')
+        
+        a1 = game_array
+        b1 = game_array[0][0]
+        print(str(a1))
+        print(str(b1))
+        b1spieler = b1[2]
+        print(b1spieler)
+        display_message(str(a1))
+        return True
+    
+    
+
+
+
+
 # Checking if someone has won
 def has_won(game_array):
     # Checking rows
@@ -186,6 +206,7 @@ def main():
                 pygame.quit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 click(game_array)
+                still_free(game_array)
 
         render()
 

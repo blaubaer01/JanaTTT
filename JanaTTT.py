@@ -12,8 +12,12 @@ from tkinter.constants import *
 #from PIL import ImageTk, Image
 import os
 from tkinter import messagebox
+import configparser
 
 import JanaTTT_support
+
+global playmode
+
 
 def popup1(event, *args, **kwargs):
         Popupmenu1 = tk.Menu(JanaTTT_support.root, tearoff=0)
@@ -25,13 +29,35 @@ def popup2(event, *args, **kwargs):
         Popupmenu2.configure(activebackground="#f9f9f9")
         Popupmenu2.post(event.x_root, event.y_root)
 
+
+#get playmode
+config = configparser.ConfigParser()
+config.read('spiel.ini')
+playmode = config['DEFAULT']['playmode']
+
+
 class Toplevel1:
     def __init__(self, top=None):
         
         
+        def save_play_mode():
+            global playmode
+            spielmodus = self.TCombobox1.get()
+            config = configparser.ConfigParser()
+            config.read('spiel.ini')
+            config['DEFAULT']['playmode'] = spielmodus
+            with open('spiel.ini', 'w') as configfile:    # save
+                config.write(configfile)
+            playmode = spielmodus
+        
+        
+        
         def spiel_start():
-
-            os.system("python3 jgame.py 1")
+            print(playmode)
+            if playmode =='2 Spieler':
+                os.system("python3 jgame.py 1")
+            elif playmode =='Simple Engine':
+                os.system("python3 jgame2.py 1")
 
         def symbole_waehlen():
 
@@ -62,6 +88,9 @@ class Toplevel1:
 
         top.wm_iconphoto(True, img)
         
+        
+            
+        
         self.top = top
         
         
@@ -80,13 +109,35 @@ class Toplevel1:
 
 
         self.Label1 = tk.Label(self.top)
-        self.Label1.place(relx=0.01, rely=0.01, height=400, width=450)
+        self.Label1.place(relx=0.01, rely=0.08, height=400, width=450)
         self.Label1.configure(anchor='w')
         self.Label1.configure(compound='left')
         photo_location = "Jana_logo.gif"
         global _img0
         _img0 = tk.PhotoImage(file=photo_location)
         self.Label1.configure(image=_img0)
+        
+
+
+
+        self.TCombobox1 = ttk.Combobox(self.top)
+        self.TCombobox1.place(relx=0.01, rely=0.01, relheight=0.072
+                , relwidth=0.3)
+        self.value_list1 = ['2 Spieler','Simple Engine']
+        
+        self.TCombobox1.configure(values=self.value_list1)
+        self.TCombobox1.current(0)
+        self.TCombobox1.configure(takefocus="")        
+        
+        
+        self.Button1 = tk.Button(self.top)
+        self.Button1.place(relx=0.35, rely=0.01, height=33, width=200)
+        self.Button1.configure(borderwidth="2")
+        self.Button1.configure(compound='left')
+        self.Button1.configure(text='''Spieler Modus speichern''')
+        self.Button1.configure(command=save_play_mode)
+        
+        
         
         
         #Imtk1 = tk.PhotoImage(file="X_modified.png")

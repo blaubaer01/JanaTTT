@@ -58,7 +58,11 @@ class Toplevel1:
                 os.system("python3 jgame.py 1")
             elif playmode =='Simple Engine':
                 os.system("python3 jgame2.py 1")
-
+            elif playmode =='Normal Engine':
+                os.system("python3 jgame3.py 1")
+            
+            
+            
         def symbole_waehlen():
 
             os.system("python3 Jana_Symbole.py 1")
@@ -123,7 +127,7 @@ class Toplevel1:
         self.TCombobox1 = ttk.Combobox(self.top)
         self.TCombobox1.place(relx=0.01, rely=0.01, relheight=0.072
                 , relwidth=0.3)
-        self.value_list1 = ['2 Spieler','Simple Engine']
+        self.value_list1 = ['2 Spieler','Simple Engine', 'Normal Engine']
         
         self.TCombobox1.configure(values=self.value_list1)
         self.TCombobox1.current(0)

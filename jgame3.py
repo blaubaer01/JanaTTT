@@ -213,6 +213,8 @@ def still_free(game_array):
     
     empty_array = list()
     array_values = list()
+    empty_array2 = list()
+    
     
     a1 = game_array[0][0]
     a1_player = a1[2]
@@ -281,20 +283,123 @@ def still_free(game_array):
     array_values.append(c3_value)
     if c3_value == True:
         empty_array.append('c3')
-        
-    print(empty_array)
-    print(array_values)
     
-    if len(empty_array)>=1:
-        random_dec = random.choice(empty_array)
+        
+    #horizontal
+    if a1_value ==False and a2_value ==False:
+        if a3_value == True:
+            empty_array2.append('a3')
+    if a1_value ==False and a3_value ==False:
+        if a2_value == True:
+            empty_array2.append('a2')
+    if a2_value ==False and a3_value ==False:
+        if a1_value == True:
+            empty_array2.append('a1')
+    
+    if b1_value ==False and b2_value ==False:
+        if b3_value == True:
+            empty_array2.append('b3')
+    if b1_value ==False and b3_value ==False:
+        if b2_value == True:
+            empty_array2.append('b2')
+    if b2_value ==False and b3_value ==False:
+        if b1_value == True:
+            empty_array2.append('b1')
+    
+    if c1_value ==False and c2_value ==False:
+        if c3_value == True:
+            empty_array2.append('c3')
+    if c1_value ==False and c3_value ==False:
+        if c2_value == True:
+            empty_array2.append('c2')
+    if c2_value ==False and c3_value ==False:
+        if c1_value == True:
+            empty_array2.append('c1')
+    
+    #vertikal
+    
+    if a1_value ==False and b1_value ==False:
+        if c1_value == True:
+            empty_array2.append('c1')
+    if a1_value ==False and c1_value ==False:
+        if b1_value == True:
+            empty_array2.append('b1')
+    if b1_value ==False and c1_value ==False:
+        if a1_value == True:
+            empty_array2.append('a1')
+    
+    if a2_value ==False and b2_value ==False:
+        if c2_value == True:
+            empty_array2.append('c2')
+    if a2_value ==False and c2_value ==False:
+        if b2_value == True:
+            empty_array2.append('b2')
+    if b2_value ==False and c2_value ==False:
+        if a2_value == True:
+            empty_array2.append('a2')
+    
+    if a3_value ==False and b3_value ==False:
+        if c3_value == True:
+            empty_array2.append('c3')
+    if a3_value ==False and c3_value ==False:
+        if b3_value == True:
+            empty_array2.append('b3')
+    if b3_value ==False and c3_value ==False:
+        if a3_value == True:
+            empty_array2.append('a3')
+    
+    #diagonal
+    
+    if a1_value ==False and b2_value ==False:
+        if c3_value == True:
+            empty_array2.append('c3')
+    if a1_value ==False and c3_value ==False:
+        if b2_value == True:
+            empty_array2.append('b2')
+    if b2_value ==False and c3_value ==False:
+        if a1_value == True:
+            empty_array2.append('a1')
+    
+    if c1_value ==False and b2_value ==False:
+        if a3_value == True:
+            empty_array2.append('a3')
+    if c1_value ==False and a3_value ==False:
+        if b2_value == True:
+            empty_array2.append('b2')
+    if b2_value ==False and a3_value ==False:
+        if c1_value == True:
+            empty_array2.append('c1')
+    
+    
+        
+    
+    
+        
+# =============================================================================
+    print('empty array:', empty_array)
+    print(array_values)
+    print('empty array 2:', empty_array2)    
+    
+    if len(empty_array2)>=1:
+        random_dec = random.choice(empty_array2)
         print(random_dec)
     else:
-        if len (empty_array)==0:
-            print('Array empty')
+
+        if len(empty_array2)==0:
+            if len(empty_array)>=1:
+                random_dec = random.choice(empty_array)
+                print(random_dec)
+            else:
+                if len (empty_array)==0:
+                    print('Array empty')
+                else:
+                    random_dec = empty_array[0]
+                    print(random_dec)
         else:
-            random_dec = empty_array[0]
+            random_dec = empty_array2[0]
             print(random_dec)
-    
+     
+# =============================================================================
 
 # Checking if someone has won
 def has_won(game_array):
